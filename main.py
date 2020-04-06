@@ -4,7 +4,6 @@ import os
 import pathlib
 import tkinter
 import time
-from tkinter import *
 from pathlib import Path
 
 
@@ -47,14 +46,14 @@ def myfunc(Event):
             subprocess.Popen(commandeOuverture, shell=True)
         else:
             pass
-        
+
 ##When called it informs the User of the drive selected
 def print_selection():
     l2.grid_forget()
     l3.grid_forget()
     l4.grid_forget()
     l.grid(row=12, column=0, padx=5)
-        
+
 
 ##When called it informs the User of the start folders selected
 def print_selection2():
@@ -89,8 +88,8 @@ def translate_Fr():
     r5.configure(text="Musique")
     r6.configure(text="Vidéos")
     bFullscreen.configure(text="Plein écran")
-    rLinux.grid(row=1, column=2, sticky=W)
-    rWin.grid(row=1, column=1, sticky=W)
+    rLinux.grid(row=1, column=2, sticky=tkinter.W)
+    rWin.grid(row=1, column=1, sticky=tkinter.W)
     lbl_sys.grid(row=1, column=0, pady=5, padx=3)
     lbl_lang.grid_forget()
     bFr.grid_forget()
@@ -124,8 +123,8 @@ def translate_Eng():
     r5.configure(text="Music")
     r6.configure(text="Videos")
     bFullscreen.configure(text="Fullscreen")
-    rLinux.grid(row=1, column=2, sticky=W)
-    rWin.grid(row=1, column=1, sticky=W)
+    rLinux.grid(row=1, column=2, sticky=tkinter.W)
+    rWin.grid(row=1, column=1, sticky=tkinter.W)
     lbl_sys.grid(row=1, column=0, pady=5, padx=3)
     lbl_lang.grid_forget()
     bFr.grid_forget()
@@ -143,20 +142,20 @@ def print_selection_sys_Win():
     l3.grid(row=12, column=0, padx=5)
     lbl_drive.grid(row=4, column=0, pady=5, padx=5)
     lbl_sys_infowin.grid(row=13, column=0, pady=5, padx=5)
-    rC.grid(row=4, column=1, sticky=W)
-    rD.grid(row=4, column=2, sticky=W)
+    rC.grid(row=4, column=1, sticky=tkinter.W)
+    rD.grid(row=4, column=2, sticky=tkinter.W)
     lbl_reponse.grid(row=2, column=0, pady=5, padx=3)
     lbl_usr.grid(row=3, column=0, pady=5, padx=5)
     lbl_folders.grid(row=5, column=0, pady=5, padx=5)
     directoryent.grid(row=2, column=1, pady=5, padx=5)
     comp_usr.grid(row=3, column=1, pady=5, padx=5)
     lbl_info.grid(row=14, column=0, pady=5, padx=5)
-    r1.grid(row=5, column=1, sticky=W)
-    r2.grid(row=5, column=2, sticky=W)
-    r3.grid(row=6, column=1, sticky=W)
-    r4.grid(row=6, column=2, sticky=W)
-    r5.grid(row=7, column=1, sticky=W)
-    r6.grid(row=7, column=2, sticky=W)
+    r1.grid(row=5, column=1, sticky=tkinter.W)
+    r2.grid(row=5, column=2, sticky=tkinter.W)
+    r3.grid(row=6, column=1, sticky=tkinter.W)
+    r4.grid(row=6, column=2, sticky=tkinter.W)
+    r5.grid(row=7, column=1, sticky=tkinter.W)
+    r6.grid(row=7, column=2, sticky=tkinter.W)
 
 ##When called it creates all the elements needed for creating folders in Linux environments
 def print_selection_sys_Linux():
@@ -172,12 +171,12 @@ def print_selection_sys_Linux():
     directoryent.grid(row=2, column=1, pady=5, padx=5)
     comp_usr.grid(row=3, column=1, pady=5, padx=5)
     lbl_info.grid(row=14, column=0, pady=5, padx=5)
-    r1.grid(row=5, column=1, sticky=W)
-    r2.grid(row=5, column=2, sticky=W)
-    r3.grid(row=6, column=1, sticky=W)
-    r4.grid(row=6, column=2, sticky=W)
-    r5.grid(row=7, column=1, sticky=W)
-    r6.grid(row=7, column=2, sticky=W)
+    r1.grid(row=5, column=1, sticky=tkinter.W)
+    r2.grid(row=5, column=2, sticky=tkinter.W)
+    r3.grid(row=6, column=1, sticky=tkinter.W)
+    r4.grid(row=6, column=2, sticky=tkinter.W)
+    r5.grid(row=7, column=1, sticky=tkinter.W)
+    r6.grid(row=7, column=2, sticky=tkinter.W)
     rC.grid_forget()
     rD.grid_forget()
     lbl_drive.grid_forget()
@@ -212,7 +211,7 @@ def Quit():
 
 
 ##Creating window with Tkinter module
-window = Tk()
+window = tkinter.Tk()
 
 ##We set the window Title
 window.title("Path Creator")
@@ -226,78 +225,78 @@ window.geometry('1280x720')
 
 
 #Vars
-comp_drive = StringVar()
-env = StringVar()
-sys = StringVar()
+comp_drive = tkinter.StringVar()
+env = tkinter.StringVar()
+sys = tkinter.StringVar()
 lang = ""
 
 ##Title of the Window
-title = Label(window, text="", font=("", 23), background="#323232", fg="cyan")
+title = tkinter.Label(window, text="", font=("", 23), background="#323232", fg="cyan")
 title.grid(row=0, column=1, pady=12, padx=50)
 
 
-##Labels
-lbl_sys = Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
+## Labels
+lbl_sys = tkinter.Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
 lbl_sys.grid(row=1, column=0, pady=5, padx=3)
 lbl_sys.grid_forget()
-lbl_reponse = Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
+lbl_reponse = tkinter.Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
 lbl_reponse.grid(row=2, column=0, pady=5, padx=3)
 lbl_reponse.grid_forget()
-lbl_usr = Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
+lbl_usr = tkinter.Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
 lbl_usr.grid(row=3, column=0, pady=5, padx=5)
 lbl_usr.grid_forget()
-lbl_drive = Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
+lbl_drive = tkinter.Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
 lbl_drive.grid(row=4, column=0, pady=5, padx=5)
 lbl_drive.grid_forget()
-lbl_folders = Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
+lbl_folders = tkinter.Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
 lbl_folders.grid(row=5, column=0, pady=5, padx=5)
 lbl_folders.grid_forget()
-text1 = Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
+text1 = tkinter.Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
 text1.grid(row=8, column=1, pady=5, padx=5)
 text1.grid_forget()
-text2 = Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
+text2 = tkinter.Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
 text2.grid(row=9, column=1, pady=5, padx=5)
 text2.grid_forget()
-text3 = Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
+text3 = tkinter.Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
 text3.grid(row=10, column=1, pady=5, padx=5)
-lsys = Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
+lsys = tkinter.Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
 lsys.grid(row=11, column=0, padx=5)
-l = Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
+l = tkinter.Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
 l.grid(row=12, column=0, padx=5)
 l.grid_forget()
-l2 = Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
+l2 = tkinter.Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
 l2.grid(row=12, column=0, padx=5)
 l2.grid_forget()
-l3 = Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
+l3 = tkinter.Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
 l3.grid(row=12, column=0, padx=5)
 l3.grid_forget()
-l4 = Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
+l4 = tkinter.Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
 l4.grid(row=12, column=0, padx=5)
 l4.grid_forget()
-l5 = Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
+l5 = tkinter.Label(window, bg='#323232', text="", background="#323232", fg="#ffffff", font=("", 15))
 l5.grid(row=12, column=0, padx=5)
 l5.grid_forget()
-lbl_sys_infowin = Label(window, text="", background="#323232", fg="#ffffff", font=("", 15))
+lbl_sys_infowin = tkinter.Label(window, text="", background="#323232", fg="#ffffff", font=("", 15))
 lbl_sys_infowin.grid(row=13, column=0, pady=5, padx=5)
 lbl_sys_infowin.grid_forget()
-lbl_sys_infolinux = Label(window, text="", background="#323232", fg="#ffffff", font=("", 15))
+lbl_sys_infolinux = tkinter.Label(window, text="", background="#323232", fg="#ffffff", font=("", 15))
 lbl_sys_infolinux.grid(row=13, column=0, pady=5, padx=5)
 lbl_sys_infolinux.grid_forget()
-lbl_info = Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
+lbl_info = tkinter.Label(window, text="", font=("", 15), background="#323232", fg="#ffffff")
 lbl_info.grid(row=14, column=0, pady=5, padx=5)
 lbl_info.grid_forget()
-lbl_lang = Label(window, text="Select your language", font=("", 23), background="#323232", fg="#ffffff")
+lbl_lang = tkinter.Label(window, text="Select your language", font=("", 23), background="#323232", fg="#ffffff")
 lbl_lang.grid(row=1, column=0, pady=5, padx=5)
-txtlang = Label(window, text="Languages", font=("", 23), background="#323232", fg="#ffffff")
+txtlang = tkinter.Label(window, text="Languages", font=("", 23), background="#323232", fg="#ffffff")
 txtlang.grid(row=15, column=0)
 txtlang.grid_forget()
 
 
 ##Input as Entries
-directoryent = Entry(window, background="#323232", fg="#ffffff", font=("", 23))
+directoryent = tkinter.Entry(window, background="#323232", fg="#ffffff", font=("", 23))
 directoryent.grid(row=2, column=1, pady=5, padx=5)
 directoryent.grid_forget()
-comp_usr = Entry(window, background="#323232", fg="#ffffff", font=("", 23))
+comp_usr = tkinter.Entry(window, background="#323232", fg="#ffffff", font=("", 23))
 comp_usr.grid(row=3, column=1, pady=5, padx=5)
 comp_usr.grid_forget()
 directoryent.bind("<Return>", myfunc)
@@ -306,60 +305,60 @@ comp_usr.bind("<Return>", myfunc)
 
 ##Buttons
 ##Radio Buttons
-rC = Radiobutton(window, text="C:", variable=comp_drive, value="C", background="#323232", fg="green", font=("", 23), command=exp_Cdrive)
-rC.grid(row=4, column=1, sticky=W)
+rC = tkinter.Radiobutton(window, text="C:", variable=comp_drive, value="C", background="#323232", fg="green", font=("", 23), command=exp_Cdrive)
+rC.grid(row=4, column=1, sticky=tkinter.W)
 rC.grid_forget()
-rD = Radiobutton(window, text="D:", variable=comp_drive, value="D", background="#323232", fg="green", font=("", 23), command=exp_Ddrive)
-rD.grid(row=4, column=2, sticky=W)
+rD = tkinter.Radiobutton(window, text="D:", variable=comp_drive, value="D", background="#323232", fg="green", font=("", 23), command=exp_Ddrive)
+rD.grid(row=4, column=2, sticky=tkinter.W)
 rD.grid_forget()
-r1 = Radiobutton(window, text="", variable=env, value="Documents", background="#323232", fg="green", font=("", 23), command=print_selection2)
-r1.grid(row=5, column=1, sticky=W)
+r1 = tkinter.Radiobutton(window, text="", variable=env, value="Documents", background="#323232", fg="green", font=("", 23), command=print_selection2)
+r1.grid(row=5, column=1, sticky=tkinter.W)
 r1.grid_forget()
-r2 = Radiobutton(window, text="", variable=env, value="Downloads", background="#323232", fg="green", font=("", 23), command=print_selection2)
-r2.grid(row=5, column=2, sticky=W)
+r2 = tkinter.Radiobutton(window, text="", variable=env, value="Downloads", background="#323232", fg="green", font=("", 23), command=print_selection2)
+r2.grid(row=5, column=2, sticky=tkinter.W)
 r2.grid_forget()
-r3 = Radiobutton(window, text="", variable=env, value="Desktop", background="#323232", fg="green", font=("", 23), command=print_selection2)
-r3.grid(row=6, column=1, sticky=W)
+r3 = tkinter.Radiobutton(window, text="", variable=env, value="Desktop", background="#323232", fg="green", font=("", 23), command=print_selection2)
+r3.grid(row=6, column=1, sticky=tkinter.W)
 r3.grid_forget()
-r4 = Radiobutton(window, text="", variable=env, value="Pictures", background="#323232", fg="green", font=("", 23), command=print_selection2)
-r4.grid(row=6, column=2, sticky=W)
+r4 = tkinter.Radiobutton(window, text="", variable=env, value="Pictures", background="#323232", fg="green", font=("", 23), command=print_selection2)
+r4.grid(row=6, column=2, sticky=tkinter.W)
 r4.grid_forget()
-r5 = Radiobutton(window, text="", variable=env, value="Music", background="#323232", fg="green", font=("", 23), command=print_selection2)
-r5.grid(row=7, column=1, sticky=W)
+r5 = tkinter.Radiobutton(window, text="", variable=env, value="Music", background="#323232", fg="green", font=("", 23), command=print_selection2)
+r5.grid(row=7, column=1, sticky=tkinter.W)
 r5.grid_forget()
-r6 = Radiobutton(window, text="", variable=env, value="Videos", background="#323232", fg="green", font=("", 23), command=print_selection2)
-r6.grid(row=7, column=2, sticky=W)
+r6 = tkinter.Radiobutton(window, text="", variable=env, value="Videos", background="#323232", fg="green", font=("", 23), command=print_selection2)
+r6.grid(row=7, column=2, sticky=tkinter.W)
 r6.grid_forget()
-rWin = Radiobutton(window, text="Windows", variable=sys, value="Windows", background="#323232", fg="orangered", font=("", 23), command=print_selection_sys_Win)
-rWin.grid(row=1, column=1, sticky=W)
+rWin = tkinter.Radiobutton(window, text="Windows", variable=sys, value="Windows", background="#323232", fg="orangered", font=("", 23), command=print_selection_sys_Win)
+rWin.grid(row=1, column=1, sticky=tkinter.W)
 rWin.grid_forget()
-rLinux = Radiobutton(window, text="Linux", variable=sys, value="Linux", background="#323232", fg="orangered", font=("", 23), command=print_selection_sys_Linux)
-rLinux.grid(row=1, column=2, sticky=W)
+rLinux = tkinter.Radiobutton(window, text="Linux", variable=sys, value="Linux", background="#323232", fg="orangered", font=("", 23), command=print_selection_sys_Linux)
+rLinux.grid(row=1, column=2, sticky=tkinter.W)
 rLinux.grid_forget()
 
 
 ##Simple Buttons
-bEng = Radiobutton(window, text="English", variable=lang, value="eng", background="#323232", fg="orange", font=("", 23), command=translate_Eng)
+bEng = tkinter.Radiobutton(window, text="English", variable=lang, value="eng", background="#323232", fg="orange", font=("", 23), command=translate_Eng)
 bEng.grid(row=1, column=1)
-bFr = Radiobutton(window, text="Français", variable=lang, value="fr", background="#323232", fg="orange", font=("", 23), command=translate_Fr)
+bFr = tkinter.Radiobutton(window, text="Français", variable=lang, value="fr", background="#323232", fg="orange", font=("", 23), command=translate_Fr)
 bFr.grid(row=1, column=2)
-bEngafter = Radiobutton(window, text="English", variable=lang, value="eng", background="#323232", fg="orange", font=("", 23), command=translate_Eng)
+bEngafter = tkinter.Radiobutton(window, text="English", variable=lang, value="eng", background="#323232", fg="orange", font=("", 23), command=translate_Eng)
 bEngafter.grid(row=15, column=1)
 bEngafter.grid_forget()
-bFrafter = Radiobutton(window, text="Français", variable=lang, value="fr", background="#323232", fg="orange", font=("", 23), command=translate_Fr)
+bFrafter = tkinter.Radiobutton(window, text="Français", variable=lang, value="fr", background="#323232", fg="orange", font=("", 23), command=translate_Fr)
 bFrafter.grid(row=15, column=2)
 bFrafter.grid_forget()
 
 
-##Imporants Buttons 
+##Imporants Buttons
 ##
 ##          DON'T EVER IMAGINE REMOVE THEM OR HIDE THEM !!!!!!!
 ##
 #####################################################################################
-bFullscreen = Button(window, text="[ ]", background="#323232", fg="red", font=("", 23), command=Toggle_Fullscreen)
-bFullscreen.grid(row=0, column=3, sticky=W)
-bExit = Button(window, text="X", background="#323232", fg="red", font=("", 23), command=Quit)
-bExit.grid(row=0, column=4, sticky=W)
+bFullscreen = tkinter.Button(window, text="[ ]", background="#323232", fg="red", font=("", 23), command=Toggle_Fullscreen)
+bFullscreen.grid(row=0, column=3, sticky=tkinter.W)
+bExit = tkinter.Button(window, text="X", background="#323232", fg="red", font=("", 23), command=Quit)
+bExit.grid(row=0, column=4, sticky=tkinter.W)
 
 
 
