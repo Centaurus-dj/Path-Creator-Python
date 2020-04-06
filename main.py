@@ -31,21 +31,13 @@ def myfunc(Event):
         ##We create a condition to be sure te folder is created
         if not os.path.exists(myPath):
             os.makedirs(myPath)
-            ##Variable Construction
-            commandeOuverture = "explorer " + str(myPath)
-            text2.grid(row=9, column=1, pady=5, padx=5)
-            time.sleep(1)
-            ##We open the folder using Popen
-            subprocess.Popen(commandeOuverture, shell=True)
-        elif os.path.exists(myPath):
-            ##Variable Construction
-            commandeOuverture = "explorer " + str(myPath)
-            text2.grid(row=9, column=1, pady=5, padx=5)
-            time.sleep(1)
-            ##We open the folder using Popen
-            subprocess.Popen(commandeOuverture, shell=True)
-        else:
-            pass
+        ##Variable Construction
+        commandeOuverture = "explorer " + str(myPath)
+        text2.grid(row=9, column=1, pady=5, padx=5)
+        time.sleep(1)
+        ##We open the folder using Popen
+        subprocess.Popen(commandeOuverture, shell=True)
+
 
 ##When called it informs the User of the drive selected
 def print_selection():
