@@ -5,6 +5,7 @@ import pathlib
 import tkinter
 import time
 from pathlib import Path
+import translations
 
 
 ##Functions
@@ -56,30 +57,31 @@ def print_selection2():
     l2.grid(row=12, column=0, padx=5)
 
 ##When called it translates all the text in French
-def translate_Fr():
-    title.configure(text="Créateur de répertoire")
-    lbl_sys.configure(text="Quel est votre système d'exploitation")
-    lbl_reponse.configure(text="Le nom du/des dossier(s)")
-    lbl_usr.configure(text="Votre nom d'utilisateur sur l'ordinateur")
-    lbl_folders.configure(text="Le dossier de départ :")
-    lbl_info.configure(text="Quand vous avez fini, appuyez sur Entrer")
-    text1.configure(text="Vous n'avez pas entré de nom")
-    text2.configure(text="Nous ouvrons le dossier...")
-    l.config(text='Vous avez sélectionné le disque C')
-    l2.config(text="Vous avez sélectionné un dossier")
-    l3.configure(text="Vous avez sélectionné le système d'exploitation Windows")
-    l4.configure(text="Vous avez séléctionné le système d'exploitation Linux")
-    l5.config(text='Vous avez sélectionné le disque D')
-    lbl_drive.configure(text="Quel est le nom du disque de départ ?")
-    lbl_sys_infowin.configure(text="Le répertoire de base est: Ce PC/")
-    lbl_sys_infolinux.configure(text="Le répertoire de base est: /home/")
-    r1.configure(text="Documents")
-    r2.configure(text="Téléchargements")
-    r3.configure(text="Bureau")
-    r4.configure(text="Images")
-    r5.configure(text="Musique")
-    r6.configure(text="Vidéos")
-    bFullscreen.configure(text="Plein écran")
+def translate_text():
+    locale = str(lang.get())
+    title.configure(text=translations.text[locale]["title"])
+    lbl_sys.configure(text=translations.text[locale]["lbl_sys"])
+    lbl_reponse.configure(text=translations.text[locale]["lbl_reponse"])
+    lbl_usr.configure(text=translations.text[locale]["lbl_usr"])
+    lbl_folders.configure(text=translations.text[locale]["lbl_folders"])
+    lbl_info.configure(text=translations.text[locale]["lbl_info"])
+    text1.configure(text=translations.text[locale]["text1"])
+    text2.configure(text=translations.text[locale]["text2"])
+    l.config(text=translations.text[locale]["l"])
+    l2.config(text=translations.text[locale]["l2"])
+    l3.configure(text=translations.text[locale]["l3"])
+    l4.configure(text=translations.text[locale]["l4"])
+    l5.config(text=translations.text[locale]["l5"])
+    lbl_drive.configure(text=translations.text[locale]["lbl_drive"])
+    lbl_sys_infowin.configure(text=translations.text[locale]["lbl_sys_infowin"])
+    lbl_sys_infolinux.configure(text=translations.text[locale]["lbl_sys_infolinux"])
+    r1.configure(text=translations.text[locale]["r1"])
+    r2.configure(text=translations.text[locale]["r2"])
+    r3.configure(text=translations.text[locale]["r3"])
+    r4.configure(text=translations.text[locale]["r4"])
+    r5.configure(text=translations.text[locale]["r5"])
+    r6.configure(text=translations.text[locale]["r6"])
+    bFullscreen.configure(text=translations.text[locale]["bFullscreen"])
     rLinux.grid(row=1, column=2, sticky=tkinter.W)
     rWin.grid(row=1, column=1, sticky=tkinter.W)
     lbl_sys.grid(row=1, column=0, pady=5, padx=3)
@@ -90,40 +92,6 @@ def translate_Fr():
     bEngafter.grid(row=15, column=1)
     bFrafter.grid(row=15, column=2)
 
-##When called it translates all the text in English
-def translate_Eng():
-    title.configure(text="Path creator")
-    lbl_sys.configure(text="What's your OS")
-    lbl_reponse.configure(text="The name of your folder(s)")
-    lbl_usr.configure(text="Your computer username")
-    lbl_folders.configure(text="The start folder :")
-    lbl_info.configure(text="When you have done, press Enter key")
-    text1.configure(text="You didn't entered a name")
-    text2.configure(text="We are opening the folder...")
-    l.config(text='You have selected the C drive')
-    l2.config(text="You have selected a folder")
-    l3.configure(text="You have selected the Windows environment")
-    l4.configure(text="You have selected the Linux environment")
-    l5.config(text='You have selected the D drive')
-    lbl_drive.configure(text="What's the name of the Drive chosed")
-    lbl_sys_infowin.configure(text="Your start path is: This PC/")
-    lbl_sys_infolinux.configure(text="Your start path is: /home/")
-    r1.configure(text="Documents")
-    r2.configure(text="Downloads")
-    r3.configure(text="Desktop")
-    r4.configure(text="Images")
-    r5.configure(text="Music")
-    r6.configure(text="Videos")
-    bFullscreen.configure(text="Fullscreen")
-    rLinux.grid(row=1, column=2, sticky=tkinter.W)
-    rWin.grid(row=1, column=1, sticky=tkinter.W)
-    lbl_sys.grid(row=1, column=0, pady=5, padx=3)
-    lbl_lang.grid_forget()
-    bFr.grid_forget()
-    bEng.grid_forget()
-    txtlang.grid(row=15, column=0)
-    bEngafter.grid(row=15, column=1)
-    bFrafter.grid(row=15, column=2)
 
 ##When called it creates all the elements needed for creating folders in Windows environments
 def print_selection_sys_Win():
@@ -220,7 +188,7 @@ window.geometry('1280x720')
 comp_drive = tkinter.StringVar()
 env = tkinter.StringVar()
 sys = tkinter.StringVar()
-lang = ""
+lang = tkinter.StringVar()
 
 ##Title of the Window
 title = tkinter.Label(window, text="", font=("", 23), background="#323232", fg="cyan")
@@ -330,14 +298,14 @@ rLinux.grid_forget()
 
 
 ##Simple Buttons
-bEng = tkinter.Radiobutton(window, text="English", variable=lang, value="eng", background="#323232", fg="orange", font=("", 23), command=translate_Eng)
+bEng = tkinter.Radiobutton(window, text="English", variable=lang, value="en_US", background="#323232", fg="orange", font=("", 23), command=translate_text)
 bEng.grid(row=1, column=1)
-bFr = tkinter.Radiobutton(window, text="Français", variable=lang, value="fr", background="#323232", fg="orange", font=("", 23), command=translate_Fr)
+bFr = tkinter.Radiobutton(window, text="Français", variable=lang, value="fr_FR", background="#323232", fg="orange", font=("", 23), command=translate_text)
 bFr.grid(row=1, column=2)
-bEngafter = tkinter.Radiobutton(window, text="English", variable=lang, value="eng", background="#323232", fg="orange", font=("", 23), command=translate_Eng)
+bEngafter = tkinter.Radiobutton(window, text="English", variable=lang, value="en_US", background="#323232", fg="orange", font=("", 23), command=translate_text)
 bEngafter.grid(row=15, column=1)
 bEngafter.grid_forget()
-bFrafter = tkinter.Radiobutton(window, text="Français", variable=lang, value="fr", background="#323232", fg="orange", font=("", 23), command=translate_Fr)
+bFrafter = tkinter.Radiobutton(window, text="Français", variable=lang, value="fr_FR", background="#323232", fg="orange", font=("", 23), command=translate_text)
 bFrafter.grid(row=15, column=2)
 bFrafter.grid_forget()
 
